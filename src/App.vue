@@ -1,9 +1,48 @@
 <script >
+//import axios from 'axios';
+import headerComp from './components/headerComp.vue'
+import sidebarComp from './components/sidebarComp.vue'
+import mainComp from './components/mainComp.vue'
+//import {store} from '../src/store'
 
+export default{
+  name: "App",
+  components: {
+        headerComp,
+        sidebarComp,
+        mainComp,
+    },
+data(){
+    return{
+      
+    }
+  },
+  mounted(){
+    
+  },
+  methods: {
+   
+  }
+}  
 </script>
 
 <template>
-  <h1>Ciao mondo</h1>
+  <headerComp/>
+  <div class="d-flex">
+
+    <!-- Sidebar -->
+    <sidebarComp/>
+    
+
+    <!-- Main -->
+    <mainComp/>
+    
+
+  </div>
+
+  
+  
+
 </template>
 
 <style lang="scss">
