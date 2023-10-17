@@ -28,7 +28,7 @@ data(){
 
 <template>
   <headerComp/>
-  <div class="d-flex">
+  <div id="app" class="d-flex">
 
     <!-- Sidebar -->
     <sidebarComp/>
@@ -47,4 +47,7 @@ data(){
 
 <style lang="scss">
 @use './style/main.scss';
+  #app{
+    background-image: url('../public/img/avadabarbers-about-introbackground.jpg') ;
+  }
 </style>

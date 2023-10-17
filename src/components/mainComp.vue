@@ -75,31 +75,77 @@ export default{
 
 <template>
 
-    <div>
+    <div id="container">
       <button @click="chiamataApiCocktail()">Ricerca selezionato</button>
       <button @click="chiamataApi()">Random</button>
-      <h1>{{this.nome}}</h1>
-      <div>Categoria: {{this.categoria}}</div>
-      <div>Istruzioni: {{this.istruzioni}}</div>
-      <img :src="`${this.image}`" alt="immmagine {{ this.nome }}">
-      <ul>
-        <li v-if="this.ingrediente1">{{this.ingrediente1}}</li>
-        <li v-if="this.ingrediente2">{{this.ingrediente2}}</li>
-        <li v-if="this.ingrediente3">{{this.ingrediente3}}</li>
-        <li v-if="this.ingrediente4">{{this.ingrediente4}}</li>
-        <li v-if="this.ingrediente5">{{this.ingrediente5}}</li>
-        <li v-if="this.ingrediente6">{{this.ingrediente6}}</li>
-        <li v-if="this.ingrediente7">{{this.ingrediente7}}</li>
-        <li v-if="this.ingrediente8">{{this.ingrediente8}}</li>
-        <li v-if="this.ingrediente9">{{this.ingrediente9}}</li>
-        <li v-if="this.ingrediente10">{{this.ingrediente10}}</li>
-      </ul>
+      <div class="d-flex ms-3">
+        <div class="w-50">
+            <h1>{{this.nome}}</h1>
+            <span class="etichetta">Categoria: </span>
+            <div>{{this.categoria}}</div>
+            <span class="etichetta">Ingredienti: </span>
+            <ul>
+                <li v-if="this.ingrediente1">{{this.ingrediente1}}</li>
+                <li v-if="this.ingrediente2">{{this.ingrediente2}}</li>
+                <li v-if="this.ingrediente3">{{this.ingrediente3}}</li>
+                <li v-if="this.ingrediente4">{{this.ingrediente4}}</li>
+                <li v-if="this.ingrediente5">{{this.ingrediente5}}</li>
+                <li v-if="this.ingrediente6">{{this.ingrediente6}}</li>
+                <li v-if="this.ingrediente7">{{this.ingrediente7}}</li>
+                <li v-if="this.ingrediente8">{{this.ingrediente8}}</li>
+                <li v-if="this.ingrediente9">{{this.ingrediente9}}</li>
+                <li v-if="this.ingrediente10">{{this.ingrediente10}}</li>
+            </ul>
+            <span class="etichetta">Istruzioni: </span>
+            <div> {{this.istruzioni}}</div>
+        </div>
+        <div class="w-50 d-flex justify-content-center align-items-center">
+            <img :src="`${this.image}`" alt="immmagine {{ this.nome }}">
+        </div>
+      </div>
     </div> 
 
 </template>
 
 
 <style lang="scss" scoped>
-    
+    #container{
+        width: 100%;
+        //background-image: url('../../public/img/avadabarbers-about-introbackground.jpg') ;
+        color: rgba(255, 255, 255, 0.6);
+        //font-family: 'Abril Fatface', serif;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 3px;
+        font-size: 24px;
+        h1{
+            font-family: 'Abril Fatface', serif;
+            letter-spacing: 5px;
+            color: #ae8652;
+        }
+        .etichetta{
+            //font-family: 'Abril Fatface', serif;
+            letter-spacing: 5px;
+            color: #ae8652;
+        }
+        button{
+            border: 2px solid #ae8652;
+            background-color: rgba(0, 0, 0, 0.0);
+            color: #ae8652;  
+            padding: 5px;
+            font-weight: bold;
+            &:hover{
+                background-color: #ae8652;
+                color: black;
+                transition: 2s;
+            }
+        }            
+        img{
+            display: block;
+            object-fit: cover;
+            margin-top: 20px;
+            border-radius: 20px 10px 20px 10px;
+            //box-shadow: 15px 15px 7px -5px rgba(152, 151, 151, 0.5);
+            }
+    }    
 
 </style>

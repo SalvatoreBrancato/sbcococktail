@@ -12,7 +12,7 @@ export default{
 </script>
 
 <template>
-     <div>
+     <div id="sidebar">
       <div v-for="elem in store.listaCocktail" :key="elem.id">
         <input type="radio" name="elem" v-model="store.cocktailSelezionato" :value="elem.name">
         <span>{{ elem.name }}</span>
@@ -21,8 +21,13 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-    input{
-        cursor: pointer;
+    #sidebar{
+        //background-image: url('../../public/img/avadabarbers-about-introbackground.jpg') ;
+        border-right: 2px solid #ae8652;
+        color: white;
+        input{
+            cursor: pointer;
+        }
     }
 
 </style>
