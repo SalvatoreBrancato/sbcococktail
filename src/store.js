@@ -5,31 +5,37 @@ export const store = reactive(
         listaCocktail: 
         [
           {
-            name:'Margarita'
+            name:'Amaretto Sour'
           },
           {
-            name:'Mar'
+            name: "Americano"
           },
           {
-            name:'Gin tonic'
+            name:'Aperol spritz'
           },
           {
-            name: 'Cosmopolitan',
+            name: "Bellini"
+          },
+          {
+            name:'Brandy Sour'
+          },
+          {
+            name:'Black Russian'
           },
           {
             name: 'Bloody Mary',
           },
           {
-            name: "Americano",
-          },
-          {
-            name: "Aperol Spritz",
-          },
-          {
-            name: "Bellini",
+            name: 'Blue Hurricane',
           },
           {
             name: "Caipirinha",
+          },
+          {
+            name: "Champagne Cocktail",
+          },
+          {
+            name: "Cuba Libre",
           },
           {
             name: "Daiquiri",
@@ -47,7 +53,13 @@ export const store = reactive(
             name: "Gin Fizz",
           },
           {
-            name: "Gin and Tonic",
+            name: "Gin Tonic",
+          },
+          {
+            name: "Godfather",
+          },
+          {
+            name: "Godmother",
           },
           {
             name: "Harvey Wallbanger",
@@ -56,10 +68,16 @@ export const store = reactive(
             name: "Irish Coffee",
           },
           {
+            name: "Jack Rose",
+          },
+          {
             name: "Kahlúa Martini",
           },
           {
             name: "Kir Royale",
+          },
+          {
+            name: "Long Island",
           },
           {
             name: "Mai Tai",
@@ -74,10 +92,16 @@ export const store = reactive(
             name: "Mojito",
           },
           {
+            name: "Moscow Mule",
+          },
+          {
             name: "Negroni",
           },
           {
             name: "Old Fashioned",
+          },
+          {
+            name: "Oreo Mudslide",
           },
           {
             name: "Piña Colada",
@@ -92,13 +116,34 @@ export const store = reactive(
             name: "Sidecar",
           },
           {
+            name: "Tequila Sour",
+          },
+          {
             name: "Tequila Sunrise",
+          },
+          {
+            name: "Vesper",
           },
           {
             name: "Vodka Martini",
           },
           {
+            name: "Vodka Lemon",
+          },
+          {
+            name: "Vodka Russian",
+          },
+          {
+            name: "Vodka Tonic",
+          },
+          {
             name: "Whiskey Sour",
+          },
+          {
+            name: "White Lady",
+          },
+          {
+            name: "White Russian",
           },
           {
             name: "Zombie",

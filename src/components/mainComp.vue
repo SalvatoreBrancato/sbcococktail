@@ -72,8 +72,9 @@ export default{
       axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${store.cocktailInput}`)
       .then((response) => {
       const result = response.data.drinks;
-        let elem;
-        for(elem of result){
+        // cancello tutti glie elemnti pushati in precedenza nell'array, prima di pushare i nuovi elementi
+        this.arrayInput.length = 0;
+        for(let elem of result){
           this.arrayInput.push(elem);
         }
         
@@ -117,7 +118,7 @@ export default{
 <!-- RICERCA INPUT -->
       <span>Cerca il tuo cocktail</span><input type="text" v-model="store.cocktailInput">
       <button @click="inputApi()">Ricerca input</button>
-      <div v-for="elem in arrayInput" class="d-flex ms-3">
+      <div v-for="elem in arrayInput" class="d-flex ms-3" v-if="this.arrayInput != []">
         <div class="w-50" >
           <h1>{{ elem.strDrink }}</h1>
           <span class="etichetta">Categoria: </span>

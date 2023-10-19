@@ -13,6 +13,7 @@ export default{
 
 <template>
      <div id="sidebar">
+        <div>I più ricercati</div>
       <div v-for="elem in store.listaCocktail" :key="elem.id">
         <input type="radio" name="elem" v-model="store.cocktailSelezionato" :value="elem.name">
         <span>{{ elem.name }}</span>
