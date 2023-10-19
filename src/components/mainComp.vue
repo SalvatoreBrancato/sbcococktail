@@ -21,6 +21,7 @@ export default{
       ingrediente8:'',
       ingrediente9:'',
       ingrediente10:'',
+      arrayInput: []
     }
   },
   mounted(){
@@ -51,7 +52,6 @@ export default{
       axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${store.cocktailSelezionato}`)
       .then((response) => {
       const result = response.data.drinks[0];
-      //console.log(result.strDrink)
       this.nome = result.strDrink;
       this.categoria = result.strAlcoholic;
       this.istruzioni = result.strInstructionsIT;
@@ -67,17 +67,27 @@ export default{
       this.ingrediente9 = result.strIngredient9;  
       this.ingrediente10 = result.strIngredient10;  
       });
-      console.log(store.cocktailSelezionato)
-    }
+    },
+    inputApi(){
+      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${store.cocktailInput}`)
+      .then((response) => {
+      const result = response.data.drinks;
+        let elem;
+        for(elem of result){
+          this.arrayInput.push(elem);
+        }
+        
+      });
+    },
   }
-    }
+}
 </script>
 
 <template>
 
     <div id="container">
       <button @click="chiamataApiCocktail()">Ricerca selezionato</button>
-      <button @click="chiamataApi()">Random</button>
+      <button @click="chiamataApi()">Random</button>      
       <div class="d-flex ms-3">
         <div class="w-50">
             <h1>{{this.nome}}</h1>
@@ -103,6 +113,43 @@ export default{
             <img :src="`${this.image}`" alt="immmagine {{ this.nome }}">
         </div>
       </div>
+
+<!-- RICERCA INPUT -->
+      <span>Cerca il tuo cocktail</span><input type="text" v-model="store.cocktailInput">
+      <button @click="inputApi()">Ricerca input</button>
+      <div v-for="elem in arrayInput" class="d-flex ms-3">
+        <div class="w-50" >
+          <h1>{{ elem.strDrink }}</h1>
+          <span class="etichetta">Categoria: </span>
+            <div>{{elem.strAlcoholic}}</div>
+            <span class="etichetta">Ingredienti: </span>
+            <ul>
+              <li v-if="elem.strIngredient1">{{elem.strIngredient1}}</li>
+              <li v-if="elem.strIngredient2">{{elem.strIngredient2}}</li>
+              <li v-if="elem.strIngredient3">{{elem.strIngredient3}}</li>
+              <li v-if="elem.strIngredient4">{{elem.strIngredient4}}</li>
+              <li v-if="elem.strIngredient5">{{elem.strIngredient5}}</li>
+              <li v-if="elem.strIngredient6">{{elem.strIngredient6}}</li>
+              <li v-if="elem.strIngredient7">{{elem.strIngredient7}}</li>
+              <li v-if="elem.strIngredient8">{{elem.strIngredient8}}</li>
+              <li v-if="elem.strIngredient9">{{elem.strIngredient9}}</li>
+              <li v-if="elem.strIngredient10">{{elem.strIngredient10}}</li>
+              <li v-if="elem.strIngredient11">{{elem.strIngredient11}}</li>
+              <li v-if="elem.strIngredient12">{{elem.strIngredient12}}</li>
+              <li v-if="elem.strIngredient13">{{elem.strIngredient13}}</li>
+              <li v-if="elem.strIngredient14">{{elem.strIngredient14}}</li>
+              <li v-if="elem.strIngredient15">{{elem.strIngredient15}}</li>
+
+            </ul>
+            <span class="etichetta">Istruzioni: </span>
+            <div> {{elem.strInstructionsIT}}</div>
+        </div>
+        <div class="w-50 d-flex justify-content-center align-items-center">
+            <img :src="`${elem.strDrinkThumb}`" alt="immagine cocktail">
+        </div>
+      </div>
+<!--FINE RICERCA INPUT  -->
+
     </div> 
 
 </template>
@@ -112,7 +159,7 @@ export default{
     #container{
         width: 100%;
         //background-image: url('../../public/img/avadabarbers-about-introbackground.jpg') ;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.8);
         //font-family: 'Abril Fatface', serif;
         font-family: 'Montserrat', sans-serif;
         letter-spacing: 3px;

@@ -27,16 +27,19 @@ data(){
 </script>
 
 <template>
-  <headerComp/>
-  <div id="app" class="d-flex">
-
-    <!-- Sidebar -->
-    <sidebarComp/>
+  <div id="app">
     
+    <!-- Navbar -->
+    <headerComp/>
 
-    <!-- Main -->
-    <mainComp/>
-    
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <sidebarComp/>
+      
+
+      <!-- Main -->
+      <mainComp/>
+    </div>
 
   </div>
 
@@ -49,5 +52,6 @@ data(){
 @use './style/main.scss';
   #app{
     background-image: url('../public/img/avadabarbers-about-introbackground.jpg') ;
+    //height: 100vh;
   }
 </style>

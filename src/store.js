@@ -8,19 +8,13 @@ export const store = reactive(
             name:'Margarita'
           },
           {
+            name:'Mar'
+          },
+          {
             name:'Gin tonic'
           },
           {
-            name: 'Mojito',
-          },
-          {
             name: 'Cosmopolitan',
-          },
-          {
-            name: 'Negroni',
-          },
-          {
-            name: 'Old Fashioned',
           },
           {
             name: 'Bloody Mary',
@@ -33,9 +27,6 @@ export const store = reactive(
           },
           {
             name: "Bellini",
-          },
-          {
-            name: "Bloody Mary",
           },
           {
             name: "Caipirinha",
@@ -113,6 +104,8 @@ export const store = reactive(
             name: "Zombie",
           }, 
         ],
-        cocktailSelezionato:''
+        cocktailSelezionato:'',
+        search: '',
+        cocktailInput: ''
     }
 )
