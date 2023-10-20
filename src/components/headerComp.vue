@@ -15,9 +15,6 @@ export default{
         }
 
     },
-    // mounted: {
-        
-    // },
     methods: {
         filteredCocktails() {
             return store.listaCocktail.filter((cocktail) => {
@@ -31,17 +28,22 @@ export default{
 <template>
      <div id="navbar">
         <p>Logo</p>
-        <div class="position-relative">
-            <span>->(Inserire contatti con modale)</span>
-            <input type="text" v-model="store.search"/>
-            
-            <div id="tendina">
-                <ul v-if="store.search.length > 0">
-                    <li v-for="cocktail in this.cocktails" :key="cocktail.name">
-                        {{ cocktail.name }}
-                    </li>
-                </ul>
+        <div>
+            <!-- inizio offcanvass -->
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Contatti</button>
+            <div class="offcanvas offcanvas-end h-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+            <div class="offcanvas-body">
+                Salvatore Brancato<br>
+                Web developer full-stack<br>
+                email: salvatorebrancato90@gmail.com
+            </div>
+            </div>
+            
+            <!-- fine offcanvass -->
         </div>
      </div>
 </template>

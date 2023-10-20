@@ -150,7 +150,21 @@ export const store = reactive(
           }, 
         ],
         cocktailSelezionato:'',
-        search: '',
-        cocktailInput: ''
+        search:'',
+        cocktailInput:'',
+        nome:'',
+        categoria:'',
+        istruzioni:'',
+        image:'',
+        ingrediente1:'',
+        ingrediente2:'',
+        ingrediente3:'',
+        ingrediente4:'',
+        ingrediente5:'',
+        ingrediente6:'',
+        ingrediente7:'',
+        ingrediente8:'',
+        ingrediente9:'',
+        ingrediente10:'',
     }
 )
