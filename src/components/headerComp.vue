@@ -39,10 +39,10 @@ export default{
             <div class="offcanvas-body">
                 Salvatore Brancato<br>
                 Web developer full-stack<br>
-                email: salvatorebrancato90@gmail.com
+                email: salvatorebrancato90@gmail.com<br>
+                linkedin:
             </div>
             </div>
-            
             <!-- fine offcanvass -->
         </div>
      </div>

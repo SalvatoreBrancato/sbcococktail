@@ -150,7 +150,7 @@ export const store = reactive(
           }, 
         ],
         cocktailSelezionato:'',
-        search:'',
+        arrayInput: [],
         cocktailInput:'',
         nome:'',
         categoria:'',

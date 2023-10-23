@@ -12,24 +12,14 @@ export default{
   methods: {
     chiamataApiCocktail(){
        setTimeout(() => {
-         axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${store.cocktailSelezionato}`)
-         .then((response) => {
-         const result = response.data.drinks[0];
-         store.nome = result.strDrink;
-         store.categoria = result.strAlcoholic;
-         store.istruzioni = result.strInstructionsIT;
-         store.image = result.strDrinkThumb;
-         store.ingrediente1 = result.strIngredient1;
-         store.ingrediente2 = result.strIngredient2;
-         store.ingrediente3 = result.strIngredient3;  
-         store.ingrediente4 = result.strIngredient4;  
-         store.ingrediente5 = result.strIngredient5;  
-         store.ingrediente6 = result.strIngredient6;
-         store.ingrediente7 = result.strIngredient7;  
-         store.ingrediente8 = result.strIngredient8;  
-         store.ingrediente9 = result.strIngredient9;  
-         store.ingrediente10 = result.strIngredient10;  
-         });        
+          axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${store.cocktailSelezionato}`)
+          .then((response) => {
+          const result = response.data.drinks;
+          store.arrayInput.length = 0;
+          for(let elem of result){
+          store.arrayInput.push(elem);
+          }
+        });        
        }, 10);
     },
   }
