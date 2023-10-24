@@ -29,17 +29,20 @@ data(){
 <template>
   <div id="app">
     
-    <!-- Navbar -->
-    <headerComp/>
-
-    <div class="d-flex">
-      <!-- Sidebar -->
-      <sidebarComp/>
-      
-
-      <!-- Main -->
-      <mainComp/>
-    </div>
+    <header>
+      <!-- Navbar -->
+      <headerComp/>
+    </header>
+    <main>
+      <div class="d-flex">
+        <!-- Sidebar -->
+        <sidebarComp/>
+        
+  
+        <!-- Main -->
+        <mainComp/>
+      </div>
+    </main>
 
   </div>
 

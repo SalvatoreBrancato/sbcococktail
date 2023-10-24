@@ -12,16 +12,6 @@ export default{
   },
   mounted(){
     this.chiamataApi();
-    this.prova()
-    //  // Ascolta l'evento scroll sull'elemento #container
-    //   window.addEventListener("scrollend", () => {
-    // //   // Verifica se l'utente ha raggiunto la fine della scroll
-    //   //if (this.$refs.prova.scrollTop === this.$refs.prova.offsetHeight) {
-    // //     // L'utente ha raggiunto la fine della scroll
-    //     //this.$alert("Arrivato in fondo!");
-    //     console.log('funziona')
-    //   //}
-    // });
   },  
   methods: {
     chiamataApi(){
@@ -45,11 +35,6 @@ export default{
         }
       });
     },
-    prova(){
-      window.addEventListener('scrollend', () =>{
-        console.log('funzionaa')
-      })
-    }
   }
 }
 </script>
@@ -86,7 +71,9 @@ export default{
               <li v-if="elem.strIngredient15">{{elem.strIngredient15}}</li>
             </ul>
             <span class="etichetta">Istruzioni: </span>
-            <div> {{elem.strInstructionsIT}}</div>
+            <div v-if="elem.strInstructionsIT"> {{elem.strInstructionsIT}}</div>
+            <div v-else>{{elem.strInstructions}}</div>
+
         </div>
         <div class="w-50 d-flex justify-content-center align-items-center">
             <img :src="`${elem.strDrinkThumb}`" alt="immagine cocktail">
