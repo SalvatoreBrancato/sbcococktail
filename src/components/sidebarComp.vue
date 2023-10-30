@@ -9,24 +9,6 @@ export default{
         store,
       }
   },
-  mounted() {
-    const btn = this.$refs.btn
-    //const prova = this.$refs.prova
-
-
-    btn.addEventListener('click', () => {
-      // console.log(btn.textContent);
-      store.cocktailSelezionato = btn.textContent
-      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${store.cocktailSelezionato}`)
-          .then((response) => {
-          const result = response.data.drinks;
-          store.arrayInput.length = 0;
-          for(let elem of result){
-          store.arrayInput.push(elem);
-          }
-        });        
-    });
-  },
   methods: {
     chiamataApiCocktail(){
        setTimeout(() => {
@@ -40,29 +22,18 @@ export default{
         });        
        }, 10);
     },
-    prova(){
-      const arrow = document.getElementById('arrow');
-      
-    }
+
   }
 }
 </script>
 
 <template>
      <div id="sidebar">
-        <div class="e-sidebar">I più ricercati</div>
-        
-        <!-- prova check -->
-        
-          <div ref="btn">martini</div>
-          <!-- <div ref="prova">gin</div> -->
-
-        <!-- fine vprova check -->
-
-      <div v-for="elem in store.listaCocktail" :key="elem.id">
-        <input type="radio" name="elem" v-model="store.cocktailSelezionato" :value="elem.name" @click="chiamataApiCocktail()">
-        <span class="e-sidebar">{{ elem.name }}</span>
-      </div>
+        <div class="title-sidebar">I più ricercati:</div>
+        <div v-for="elem in store.listaCocktail" :key="elem.id">
+          <input type="radio" name="elem" v-model="store.cocktailSelezionato" :value="elem.name" @click="chiamataApiCocktail()">
+          <span class="e-sidebar">{{ elem.name }}</span>
+        </div>
     </div>
 </template>
 
@@ -70,11 +41,22 @@ export default{
     #sidebar{
         border-right: 2px solid #ae8652;
         color: white;
+        //overflow: hidden;
+        width: 230px;
+        .title-sidebar{
+          margin-left: 10px;
+          font-size: 26px;
+          font-family: 'Abril Fatface', serif;
+          letter-spacing: 1px;
+          color: #ae8652;
+        }
         input{
             cursor: pointer;
+            margin-left: 5px;
         }
         .e-sidebar{
           margin-left: 10px;
+          font-size: 20px;
           font-family: 'Abril Fatface', serif;
           letter-spacing: 1px;
           color: rgba(255, 255, 255, 0.9);
@@ -82,8 +64,8 @@ export default{
         input[type="radio"]:after {
           content: "";
           display: block;
-          width: 20px;
-          height: 20px;
+          width: 15px;
+          height: 15px;
           border-radius: 5px 40% 5px 40%;
           border: 2px solid #ae8652;
           background-color: rgba(255, 255, 255, 1.0);

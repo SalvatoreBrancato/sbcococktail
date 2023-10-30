@@ -42,14 +42,18 @@ export default{
 <template>
 
     <div id="container">
-      
-      <button @click="chiamataApi()">Random</button>
-      <span>Cerca il tuo cocktail</span><input type="text" v-model="store.cocktailInput" @input="inputApi()">
+      <div class="d-flex justify-content-around mt-3">
+        <button @click="chiamataApi()">Cosa mi proponi?</button>
+        <div>
+          <span>Cerca il tuo cocktail</span>
+          <input type="text" placeholder="es. negroni" v-model="store.cocktailInput" @input="inputApi()">
+        </div>
+      </div>
 
 <!-- RICERCA INPUT -->
-      <div v-for="elem in store.arrayInput" class="d-flex ms-3">
+      <div v-for="elem in store.arrayInput" class="d-flex ms-3 card-drink">
         <div class="w-50" >
-          <h1>{{ elem.strDrink }}</h1>
+          <div id="title">{{ elem.strDrink }}</div>
           <span class="etichetta">Categoria: </span>
             <div>{{elem.strAlcoholic}}</div>
             <span class="etichetta">Ingredienti: </span>
@@ -81,7 +85,7 @@ export default{
       </div>
 <!--FINE RICERCA INPUT  -->
 
-      <div class="container-arrow">
+      <div v-if="store.arrayInput.length > 1" class="container-arrow">
         <div class="chevron"></div>
         <div class="chevron"></div>
         <div class="chevron"></div>
@@ -101,16 +105,6 @@ export default{
         letter-spacing: 3px;
         font-size: 24px;
         position: relative;
-        h1{
-            font-family: 'Abril Fatface', serif;
-            letter-spacing: 5px;
-            color: #ae8652;
-        }
-        .etichetta{
-            //font-family: 'Abril Fatface', serif;
-            letter-spacing: 5px;
-            color: #ae8652;
-        }
         button{
             border: 2px solid #ae8652;
             background-color: rgba(0, 0, 0, 0.0);
@@ -122,14 +116,28 @@ export default{
                 color: black;
                 transition: 2s;
             }
-        }            
-        img{
+          }
+        .card-drink{
+          margin-bottom: 150px;
+          #title{
+            font-size: 50px;
+            font-family: 'Abril Fatface', serif;
+            letter-spacing: 5px;
+            color: #ae8652;
+          }
+          .etichetta{
+            //font-family: 'Abril Fatface', serif;
+            letter-spacing: 5px;
+            color: #ae8652;
+          }         
+          img{
             display: block;
             object-fit: cover;
             margin-top: 20px;
             border-radius: 20px 10px 20px 10px;
             //box-shadow: 15px 15px 7px -5px rgba(152, 151, 151, 0.5);
-            }
+          }
+        }
             .container-arrow {
               position: fixed;
               top: 50%;

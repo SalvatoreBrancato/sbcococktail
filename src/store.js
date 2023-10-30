@@ -32,9 +32,6 @@ export const store = reactive(
             name: "Caipirinha",
           },
           {
-            name: "Champagne Cocktail",
-          },
-          {
             name: "Cuba Libre",
           },
           {
@@ -60,9 +57,6 @@ export const store = reactive(
           },
           {
             name: "Godmother",
-          },
-          {
-            name: "Harvey Wallbanger",
           },
           {
             name: "Irish Coffee",
