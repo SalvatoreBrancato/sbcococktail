@@ -2,6 +2,7 @@
 import axios from 'axios';
 import {store} from '../store'
 
+
 export default{
         name: "mainComp",
         data(){
@@ -43,7 +44,7 @@ export default{
 
     <div id="container">
       <div class="d-flex justify-content-around mt-3">
-        <button @click="chiamataApi()">Cosa mi proponi?</button>
+        <button @click="chiamataApi()">Non sai cosa bere?</button>
         <div>
           <span>Cerca il tuo cocktail</span>
           <input type="text" placeholder="es. negroni" v-model="store.cocktailInput" @input="inputApi()">
@@ -97,7 +98,8 @@ export default{
 <style lang="scss" scoped>
     #container{
         width: 100%;
-        //height: 100vh;
+        height: calc(100vh - 40px);
+        overflow-y: auto;
         //background-image: url('../../public/img/avadabarbers-about-introbackground.jpg') ;
         color: rgba(255, 255, 255, 0.8);
         //font-family: 'Abril Fatface', serif;
@@ -105,6 +107,16 @@ export default{
         letter-spacing: 3px;
         font-size: 24px;
         position: relative;
+        &::-webkit-scrollbar {
+        width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+        background: rgb(22, 22, 22);
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        &::-webkit-scrollbar-thumb {
+        background: #ae8652;
+        }
         button{
             border: 2px solid #ae8652;
             background-color: rgba(0, 0, 0, 0.0);
@@ -118,7 +130,7 @@ export default{
             }
           }
         .card-drink{
-          margin-bottom: 150px;
+          margin-bottom: 100px;
           #title{
             font-size: 50px;
             font-family: 'Abril Fatface', serif;
@@ -135,6 +147,7 @@ export default{
             object-fit: cover;
             margin-top: 20px;
             border-radius: 20px 10px 20px 10px;
+            width: 80%;
             //box-shadow: 15px 15px 7px -5px rgba(152, 151, 151, 0.5);
           }
         }
@@ -202,5 +215,16 @@ export default{
                 transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
               }
             }
+    }
+    
+    @media screen and (min-width: 600px) {
+      #container{
+        height: calc(100vh - 50px);
+      }
+    }
+      @media screen and (min-width: 900px) {
+      #container{
+        height: calc(100vh - 60px);
+      }
     }    
 </style>

@@ -38,11 +38,25 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+
     #sidebar{
         border-right: 2px solid #ae8652;
         color: white;
-        //overflow: hidden;
+        height: 100vh;
+        overflow-y: auto;
         width: 230px;
+        height: calc(100vh - 40px);
+
+        &::-webkit-scrollbar {
+        width: 0;
+        }
+        &::-webkit-scrollbar-track {
+        background: black;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        &::-webkit-scrollbar-thumb {
+        background: #ae8652;
+        }
         .title-sidebar{
           margin-left: 10px;
           font-size: 26px;
@@ -74,6 +88,17 @@ export default{
           background-color: #ae8652;
           border: 2px solid rgba(255, 255, 255, 1.0);
         }
+    }
+
+    @media screen and (min-width: 600px) {
+      #sidebar{
+        height: calc(100vh - 50px);
+      }
+    }
+      @media screen and (min-width: 900px) {
+      #sidebar{
+        height: calc(100vh - 60px);
+      }
     }
 
 </style>
