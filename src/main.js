@@ -1,22 +1,35 @@
+
 import { createApp } from 'vue';
 
 
-//import Vue from 'vue';
-//import Vuetify from 'vuetify';
-
 // import './style.css'
+
 import App from './App.vue'
 
 //importare bootstrap js
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
 
-//import Vuetify from 'vuetify/dist/vuetify.min.js';
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-//Vue.use(Vuetify);
-//const vuetify = new Vuetify();
+/* import specific icons */
+import { faAnglesRight } from '@fortawesome/free-solid-svg-icons'
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faLaptopCode } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-createApp(App).mount('#app');
+
+
+
+/* add icons to the library */
+library.add(faAnglesRight, faAnglesLeft, faEnvelope, faLaptopCode, faLinkedin, faGithub)
+
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app');
 
 

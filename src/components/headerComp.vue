@@ -37,10 +37,10 @@ export default{
                 <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body offcanvascolor d-flex flex-column justify-content-end">
-                <div>Web developer</div>
-                <div>email: salvatorebrancato90@gmail.com</div>
-                <div>LinkedIn: /in/salvatore-brancato</div>
-                <div>GitHub: /SalvatoreBrancato</div>
+                <div><font-awesome-icon icon="fa-solid fa-laptop-code" class="style-icon" />Web developer</div>
+                <div><font-awesome-icon icon="fa-solid fa-envelope" class="style-icon" />salvatorebrancato90@gmail.com</div>
+                <div><font-awesome-icon icon="fa-brands fa-linkedin" class="style-icon" /> /in/salvatore-brancato</div>
+                <div><font-awesome-icon icon="fa-brands fa-github" class="style-icon"/> /SalvatoreBrancato</div>
             </div>
             </div>
             <!-- fine offcanvass -->
@@ -85,7 +85,10 @@ export default{
                 border-bottom: 2px solid #ae8652;
                 font-family: 'Abril Fatface', serif;
             }
-
+            .style-icon{
+                color: #ae8652;
+                margin-right: 5px;
+            }
         }
     }
         @media screen and (min-width: 600px) {

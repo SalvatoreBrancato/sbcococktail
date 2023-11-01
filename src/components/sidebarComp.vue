@@ -7,6 +7,7 @@ export default{
   data() {
       return {
         store,
+        sidebarOpen: false
       }
   },
   methods: {
@@ -22,29 +23,41 @@ export default{
         });        
        }, 10);
     },
-
+    sidebar(){
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('d-none')
+      if(this.sidebarOpen === false){
+          this.sidebarOpen = true
+      }else{
+          this.sidebarOpen = false
+       }
+    }
   }
 }
 </script>
 
 <template>
-     <div id="sidebar">
-        <div class="title-sidebar">I più ricercati:</div>
-        <div v-for="elem in store.listaCocktail" :key="elem.id">
-          <input type="radio" name="elem" v-model="store.cocktailSelezionato" :value="elem.name" @click="chiamataApiCocktail()">
-          <span class="e-sidebar">{{ elem.name }}</span>
-        </div>
-    </div>
+  <div id="container-sidebar">
+    <div v-if="this.sidebarOpen === false" class="d-lg-none" @click="sidebar()"><font-awesome-icon icon="fa-solid fa-angles-right" class="style-icon" shake /></div>
+    <div v-else class="d-lg-none" @click="sidebar()"><font-awesome-icon icon="fa-solid fa-angles-left" class="style-icon" /></div>
+    <div id="sidebar" class="d-none d-lg-block">
+       <div class="title-sidebar">I più ricercati:</div>
+       <div v-for="elem in store.listaCocktail" :key="elem.id">
+         <input type="radio" name="elem" v-model="store.cocktailSelezionato" :value="elem.name" @click="chiamataApiCocktail(), sidebar()">
+         <span class="e-sidebar">{{ elem.name }}</span>
+       </div>
+   </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 
-    #sidebar{
+    #container-sidebar{
         border-right: 2px solid #ae8652;
         color: white;
         height: 100vh;
         overflow-y: auto;
-        width: 230px;
+        //width: 230px;
         height: calc(100vh - 40px);
 
         &::-webkit-scrollbar {
@@ -56,6 +69,11 @@ export default{
         }
         &::-webkit-scrollbar-thumb {
         background: #ae8652;
+        }
+        .style-icon{
+          color: #ae8652;
+          font-size: 1.5rem;
+          margin: 5px 5px;
         }
         .title-sidebar{
           margin-left: 10px;
@@ -74,6 +92,7 @@ export default{
           font-family: 'Abril Fatface', serif;
           letter-spacing: 1px;
           color: rgba(255, 255, 255, 0.9);
+          //padding-right: 10px;
         }
         input[type="radio"]:after {
           content: "";
@@ -91,13 +110,14 @@ export default{
     }
 
     @media screen and (min-width: 600px) {
-      #sidebar{
+      #container-sidebar{
         height: calc(100vh - 50px);
       }
     }
-      @media screen and (min-width: 900px) {
-      #sidebar{
+      @media screen and (min-width: 992px) {
+      #container-sidebar{
         height: calc(100vh - 60px);
+        min-width: 230px;
       }
     }
 

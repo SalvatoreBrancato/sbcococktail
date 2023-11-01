@@ -43,17 +43,17 @@ export default{
 <template>
 
     <div id="container">
-      <div class="d-flex justify-content-around mt-3">
-        <button @click="chiamataApi()">Non sai cosa bere?</button>
+      <div id="box-ricerca">
         <div>
-          <span>Cerca il tuo cocktail</span>
+          <span>Cerca il tuo cocktail: </span>
           <input type="text" placeholder="es. negroni" v-model="store.cocktailInput" @input="inputApi()">
         </div>
+        <button class="mt-3" @click="chiamataApi()">Non sai cosa bere?</button>
       </div>
 
 <!-- RICERCA INPUT -->
-      <div v-for="elem in store.arrayInput" class="d-flex ms-3 card-drink">
-        <div class="w-50" >
+      <div v-for="elem in store.arrayInput" class="d-flex flex-column flex-lg-row ms-3 card-drink">
+        <div id="main-left">
           <div id="title">{{ elem.strDrink }}</div>
           <span class="etichetta">Categoria: </span>
             <div>{{elem.strAlcoholic}}</div>
@@ -80,7 +80,7 @@ export default{
             <div v-else>{{elem.strInstructions}}</div>
 
         </div>
-        <div class="w-50 d-flex justify-content-center align-items-center">
+        <div id="main-right" class="d-flex justify-content-center align-items-center">
             <img :src="`${elem.strDrinkThumb}`" alt="immagine cocktail">
         </div>
       </div>
@@ -107,6 +107,9 @@ export default{
         letter-spacing: 3px;
         font-size: 24px;
         position: relative;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
         &::-webkit-scrollbar {
         width: 5px;
         }
@@ -117,18 +120,36 @@ export default{
         &::-webkit-scrollbar-thumb {
         background: #ae8652;
         }
-        button{
+        #box-ricerca{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: 10px 0;
+          input{
+            background-color: rgba(0, 0, 0, 0.0);
+            font-family: 'Montserrat', sans-serif;;
+            //letter-spacing: 3px;
+            color: #ae8652;
+            border-bottom: 2px solid #ae8652;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+
+          }
+          button{
             border: 2px solid #ae8652;
             background-color: rgba(0, 0, 0, 0.0);
             color: #ae8652;  
             padding: 5px;
             font-weight: bold;
+            width: 80%;
             &:hover{
                 background-color: #ae8652;
                 color: black;
                 transition: 2s;
             }
           }
+        }
         .card-drink{
           margin-bottom: 100px;
           #title{
@@ -222,9 +243,36 @@ export default{
         height: calc(100vh - 50px);
       }
     }
-      @media screen and (min-width: 900px) {
+      @media screen and (min-width: 992px) {
       #container{
         height: calc(100vh - 60px);
+        #box-ricerca{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          margin: 10px 0;
+          button{
+            border: 2px solid #ae8652;
+            background-color: rgba(0, 0, 0, 0.0);
+            color: #ae8652;  
+            padding: 5px;
+            font-weight: bold;
+            width: 30%;
+            
+            &:hover{
+                background-color: #ae8652;
+                color: black;
+                transition: 2s;
+            }
+          }
+        }
+        #main-left{
+          width: 50%;
+        }
+        #main-right{
+          width: 50%;
+        }
       }
     }    
 </style>
