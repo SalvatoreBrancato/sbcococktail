@@ -146,6 +146,7 @@ export const store = reactive(
         cocktailSelezionato:'',
         arrayInput: [],
         cocktailInput:'',
+        sidebarOpen: false,
         nome:'',
         categoria:'',
         istruzioni:'',

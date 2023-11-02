@@ -8,12 +8,29 @@ export default{
         data(){
     return{
       store,
-      arrow: false
+      arrow: false,
     }
   },
   mounted(){
     this.chiamataApi();
-  },  
+  },
+  computed: {
+    isSidebarOpen() {
+      return this.store.sidebarOpen;
+    }
+  },
+  watch: {
+    isSidebarOpen() {
+      if (this.isSidebarOpen) {
+        //console.log('aperta')
+        document.getElementById("container").style.opacity = '0.3';
+
+      } else {
+        //console.log('chiusa')
+        document.getElementById("container").style.opacity = '1.0';
+      }
+    },
+  }, 
   methods: {
     chiamataApi(){
       axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
@@ -44,7 +61,7 @@ export default{
 
     <div id="container">
       <div id="box-ricerca">
-        <div>
+        <div class="d-flex flex-column flex-md-row">
           <span>Cerca il tuo cocktail: </span>
           <input type="text" placeholder="es. negroni" v-model="store.cocktailInput" @input="inputApi()">
         </div>
@@ -100,16 +117,12 @@ export default{
         width: 100%;
         height: calc(100vh - 40px);
         overflow-y: auto;
-        //background-image: url('../../public/img/avadabarbers-about-introbackground.jpg') ;
         color: rgba(255, 255, 255, 0.8);
-        //font-family: 'Abril Fatface', serif;
         font-family: 'Montserrat', sans-serif;
         letter-spacing: 3px;
         font-size: 24px;
         position: relative;
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
+        margin-left: 40px;
         &::-webkit-scrollbar {
         width: 5px;
         }
@@ -124,6 +137,7 @@ export default{
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           margin: 10px 0;
           input{
             background-color: rgba(0, 0, 0, 0.0);
@@ -175,15 +189,15 @@ export default{
             .container-arrow {
               position: fixed;
               top: 50%;
-              right: 20px;
+              right: 2px;
               width: 24px;
               height: 24px;
             }
             
             .chevron {
               position: absolute;
-              width: 28px;
-              height: 8px;
+              width: 16px;
+              height: 6px;
               opacity: 0;
               transform: scale3d(0.5, 0.5, 0.5);
               animation: move 3s ease-out infinite;
@@ -241,11 +255,20 @@ export default{
     @media screen and (min-width: 600px) {
       #container{
         height: calc(100vh - 50px);
+        .container-arrow {   
+              right: 20px;
+            }
+            
+            .chevron {
+              width: 28px;
+            }
       }
     }
       @media screen and (min-width: 992px) {
       #container{
         height: calc(100vh - 60px);
+        margin-left: 230px;
+        opacity: 1.0;
         #box-ricerca{
           display: flex;
           flex-direction: row;

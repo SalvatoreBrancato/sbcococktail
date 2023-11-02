@@ -7,7 +7,6 @@ export default{
   data() {
       return {
         store,
-        sidebarOpen: false
       }
   },
   methods: {
@@ -25,12 +24,23 @@ export default{
     },
     sidebar(){
       const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('d-none')
-      if(this.sidebarOpen === false){
-          this.sidebarOpen = true
-      }else{
-          this.sidebarOpen = false
-       }
+      const containerSidebar = document.getElementById('container-sidebar');
+      const mediaQueryMobile = window.matchMedia("(min-width: 300px)");
+      const mediaQuery = window.matchMedia("(min-width: 900px)");
+      if(mediaQueryMobile.matches){
+        sidebar.classList.toggle('open')
+        sidebar.classList.toggle('d-none')
+        if(store.sidebarOpen === false){
+            store.sidebarOpen = true
+            containerSidebar.style.backgroundColor = 'rgba(39, 40, 41, 0.9)';
+        }else{
+            store.sidebarOpen = false
+            containerSidebar.style.backgroundColor = 'rgba(0, 0, 0, 0.0)';
+        }        
+      }
+      if(mediaQuery.matches){
+        store.sidebarOpen = false
+      }
     }
   }
 }
@@ -38,7 +48,7 @@ export default{
 
 <template>
   <div id="container-sidebar">
-    <div v-if="this.sidebarOpen === false" class="d-lg-none" @click="sidebar()"><font-awesome-icon icon="fa-solid fa-angles-right" class="style-icon" shake /></div>
+    <div v-if="store.sidebarOpen === false" class="d-lg-none" @click="sidebar()"><font-awesome-icon icon="fa-solid fa-angles-right" class="style-icon" shake /></div>
     <div v-else class="d-lg-none" @click="sidebar()"><font-awesome-icon icon="fa-solid fa-angles-left" class="style-icon" /></div>
     <div id="sidebar" class="d-none d-lg-block">
        <div class="title-sidebar">I più ricercati:</div>
@@ -57,9 +67,12 @@ export default{
         color: white;
         height: 100vh;
         overflow-y: auto;
-        //width: 230px;
+        background-color: rgba(0, 0, 0, 0.0);
         height: calc(100vh - 40px);
-
+        position: absolute;
+        z-index: 9;
+        //width: 40px;
+        transition: width 2.5s ease-in-out;
         &::-webkit-scrollbar {
         width: 0;
         }
@@ -70,6 +83,9 @@ export default{
         &::-webkit-scrollbar-thumb {
         background: #ae8652;
         }
+          .open{
+            width: 230px;
+          }
         .style-icon{
           color: #ae8652;
           font-size: 1.5rem;
@@ -77,7 +93,7 @@ export default{
         }
         .title-sidebar{
           margin-left: 10px;
-          font-size: 26px;
+          font-size: 24px;
           font-family: 'Abril Fatface', serif;
           letter-spacing: 1px;
           color: #ae8652;
@@ -92,7 +108,6 @@ export default{
           font-family: 'Abril Fatface', serif;
           letter-spacing: 1px;
           color: rgba(255, 255, 255, 0.9);
-          //padding-right: 10px;
         }
         input[type="radio"]:after {
           content: "";
@@ -108,6 +123,8 @@ export default{
           border: 2px solid rgba(255, 255, 255, 1.0);
         }
     }
+    
+    
 
     @media screen and (min-width: 600px) {
       #container-sidebar{
@@ -118,6 +135,7 @@ export default{
       #container-sidebar{
         height: calc(100vh - 60px);
         min-width: 230px;
+        background-color: rgba(0, 0, 0, 0.0);
       }
     }
 
