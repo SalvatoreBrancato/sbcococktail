@@ -226,7 +226,6 @@ export default{
             @keyframes move {
               25% {
                 opacity: 1;
-            
               }
               33% {
                 opacity: 1;
