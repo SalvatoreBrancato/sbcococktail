@@ -22,11 +22,11 @@ export default{
   watch: {
     isSidebarOpen() {
       if (this.isSidebarOpen) {
-        //console.log('aperta')
+        //sidebar open
         document.getElementById("container").style.opacity = '0.3';
 
       } else {
-        //console.log('chiusa')
+        //sidebar close
         document.getElementById("container").style.opacity = '1.0';
       }
     },
@@ -97,7 +97,7 @@ export default{
             <div v-else>{{elem.strInstructions}}</div>
 
         </div>
-        <div id="main-right" class="d-flex justify-content-center align-items-center">
+        <div id="main-right" class="d-flex justify-content-center align-items-start">
             <img :src="`${elem.strDrinkThumb}`" alt="immagine cocktail">
         </div>
       </div>
@@ -142,7 +142,6 @@ export default{
           input{
             background-color: rgba(0, 0, 0, 0.0);
             font-family: 'Montserrat', sans-serif;;
-            //letter-spacing: 3px;
             color: #ae8652;
             border-bottom: 2px solid #ae8652;
             border-top: 0;
@@ -157,11 +156,6 @@ export default{
             padding: 5px;
             font-weight: bold;
             width: 80%;
-            &:hover{
-                background-color: #ae8652;
-                color: black;
-                transition: 2s;
-            }
           }
         }
         .card-drink{
@@ -173,7 +167,6 @@ export default{
             color: #ae8652;
           }
           .etichetta{
-            //font-family: 'Abril Fatface', serif;
             letter-spacing: 5px;
             color: #ae8652;
           }         
@@ -183,7 +176,6 @@ export default{
             margin-top: 20px;
             border-radius: 20px 10px 20px 10px;
             width: 80%;
-            //box-shadow: 15px 15px 7px -5px rgba(152, 151, 151, 0.5);
           }
         }
             .container-arrow {
@@ -193,7 +185,6 @@ export default{
               width: 24px;
               height: 24px;
             }
-            
             .chevron {
               position: absolute;
               width: 16px;

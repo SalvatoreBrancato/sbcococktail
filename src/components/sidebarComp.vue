@@ -71,7 +71,6 @@ export default{
         height: calc(100vh - 40px);
         position: absolute;
         z-index: 9;
-        //width: 40px;
         transition: width 2.5s ease-in-out;
         &::-webkit-scrollbar {
         width: 0;

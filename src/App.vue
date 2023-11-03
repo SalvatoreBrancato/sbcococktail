@@ -3,7 +3,6 @@
 import headerComp from './components/headercomp.vue'
 import sidebarComp from './components/sidebarComp.vue'
 import mainComp from './components/mainComp.vue'
-//import {store} from '../src/store'
 
 export default{
   name: "App",
@@ -14,11 +13,31 @@ export default{
     },
 data(){
     return{
-      
+  
     }
   },
   mounted(){
-    
+    // const elemento = document.querySelector('#elemento')
+    // let scrollY; 
+    // // Aggiorna la posizione dello scrollY
+    // window.addEventListener("scroll", () => {
+    //   // Aggiorna la posizione dello scrollY utilizzando la proprietà scrollTop
+    //   scrollY = document.documentElement.scrollTop;
+    //   //altezzaPagina = document.documentElement.clientHeight;
+    //     if (scrollY >= elemento.offsetHeight) {
+    //     console.log('fondo')
+    //     }
+    //     console.log(scrollY)
+        
+
+    // })    
+  },
+  watch: {
+    // prova(){
+    //   window.addEventListener('scroll', () =>{
+    //     console.log('provaaaa')
+    //   })
+    // }
   },
   methods: {
    
@@ -35,7 +54,7 @@ data(){
     </header>
 
     <main>
-      <div class="d-flex">
+      <div id="elemento" class="d-flex">
         <!-- Sidebar -->
         <sidebarComp/>
         

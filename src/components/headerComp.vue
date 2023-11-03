@@ -33,7 +33,7 @@ export default{
             <button class="contact-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Contatti</button>
             <div class="offcanvas offcanvas-end h-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header offcanvascolor">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">Salvatore Brancato</h5>
+                <span class="offcanvas-title" id="offcanvasRightLabel">Salvatore Brancato</span>
                 <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body offcanvascolor d-flex flex-column justify-content-end">
@@ -79,11 +79,12 @@ export default{
             font-size: 14px;
             background-color: rgb(56, 56, 56);
             color: white;
-            h5{
+            .offcanvas-title{
                 color: #ae8652;
                 flex: 2;
                 border-bottom: 2px solid #ae8652;
                 font-family: 'Abril Fatface', serif;
+                font-size: 24px;
             }
             .style-icon{
                 color: #ae8652;
