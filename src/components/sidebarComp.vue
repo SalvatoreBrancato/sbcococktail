@@ -28,7 +28,6 @@ export default{
       const mediaQueryMobile = window.matchMedia("(min-width: 300px)");
       const mediaQuery = window.matchMedia("(min-width: 900px)");
       if(mediaQueryMobile.matches){
-        sidebar.classList.toggle('open')
         sidebar.classList.toggle('d-none')
         if(store.sidebarOpen === false){
             store.sidebarOpen = true
@@ -40,6 +39,7 @@ export default{
       }
       if(mediaQuery.matches){
         store.sidebarOpen = false
+        containerSidebar.style.backgroundColor = 'rgba(0, 0, 0, 0.0)';
       }
     }
   }
@@ -71,7 +71,6 @@ export default{
         height: calc(100vh - 40px);
         position: absolute;
         z-index: 9;
-        transition: width 2.5s ease-in-out;
         &::-webkit-scrollbar {
         width: 0;
         }
@@ -82,9 +81,6 @@ export default{
         &::-webkit-scrollbar-thumb {
         background: #ae8652;
         }
-          .open{
-            width: 230px;
-          }
         .style-icon{
           color: #ae8652;
           font-size: 1.5rem;
