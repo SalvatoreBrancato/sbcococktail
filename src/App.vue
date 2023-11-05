@@ -32,13 +32,6 @@ data(){
 
     // })    
   },
-  watch: {
-    // prova(){
-    //   window.addEventListener('scroll', () =>{
-    //     console.log('provaaaa')
-    //   })
-    // }
-  },
   methods: {
    
   }
