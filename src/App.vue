@@ -1,8 +1,8 @@
 <script >
 //import axios from 'axios';
-import headerComp from './components/headercomp.vue'
-import sidebarComp from './components/sidebarComp.vue'
-import mainComp from './components/mainComp.vue'
+import headerComp from "./components/headerComp.vue"
+import sidebarComp from "./components/sidebarComp.vue"
+import mainComp from "./components/mainComp.vue"
 
 export default{
   name: "App",

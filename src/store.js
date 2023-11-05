@@ -65,9 +65,6 @@ export const store = reactive(
             name: "Jack Rose",
           },
           {
-            name: "Kahlúa Martini",
-          },
-          {
             name: "Kir Royale",
           },
           {
