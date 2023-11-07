@@ -76,21 +76,21 @@ export default{
             <div>{{elem.strAlcoholic}}</div>
             <span class="etichetta">Ingredienti: </span>
             <ul>
-              <li v-if="elem.strIngredient1">{{elem.strIngredient1}}</li>
-              <li v-if="elem.strIngredient2">{{elem.strIngredient2}}</li>
-              <li v-if="elem.strIngredient3">{{elem.strIngredient3}}</li>
-              <li v-if="elem.strIngredient4">{{elem.strIngredient4}}</li>
-              <li v-if="elem.strIngredient5">{{elem.strIngredient5}}</li>
-              <li v-if="elem.strIngredient6">{{elem.strIngredient6}}</li>
-              <li v-if="elem.strIngredient7">{{elem.strIngredient7}}</li>
-              <li v-if="elem.strIngredient8">{{elem.strIngredient8}}</li>
-              <li v-if="elem.strIngredient9">{{elem.strIngredient9}}</li>
-              <li v-if="elem.strIngredient10">{{elem.strIngredient10}}</li>
-              <li v-if="elem.strIngredient11">{{elem.strIngredient11}}</li>
-              <li v-if="elem.strIngredient12">{{elem.strIngredient12}}</li>
-              <li v-if="elem.strIngredient13">{{elem.strIngredient13}}</li>
-              <li v-if="elem.strIngredient14">{{elem.strIngredient14}}</li>
-              <li v-if="elem.strIngredient15">{{elem.strIngredient15}}</li>
+              <li v-if="elem.strIngredient1">{{elem.strIngredient1}}<span v-if="elem.strMeasure1" class="ms-2 fs-6">({{ elem.strMeasure1 }})</span></li>
+              <li v-if="elem.strIngredient2">{{elem.strIngredient2}}<span v-if="elem.strMeasure2" class="ms-2 fs-6">({{ elem.strMeasure2 }})</span></li>
+              <li v-if="elem.strIngredient3">{{elem.strIngredient3}}<span v-if="elem.strMeasure3" class="ms-2 fs-6">({{ elem.strMeasure3 }})</span></li>
+              <li v-if="elem.strIngredient4">{{elem.strIngredient4}}<span v-if="elem.strMeasure4" class="ms-2 fs-6">({{ elem.strMeasure4 }})</span></li>
+              <li v-if="elem.strIngredient5">{{elem.strIngredient5}}<span v-if="elem.strMeasure5" class="ms-2 fs-6">({{ elem.strMeasure5 }})</span></li>
+              <li v-if="elem.strIngredient6">{{elem.strIngredient6}}<span v-if="elem.strMeasure5" class="ms-2 fs-6">({{ elem.strMeasure6 }})</span></li>
+              <li v-if="elem.strIngredient7">{{elem.strIngredient7}}<span v-if="elem.strMeasure6" class="ms-2 fs-6">({{ elem.strMeasure7 }})</span></li>
+              <li v-if="elem.strIngredient8">{{elem.strIngredient8}}<span v-if="elem.strMeasure7" class="ms-2 fs-6">({{ elem.strMeasure8 }})</span></li>
+              <li v-if="elem.strIngredient9">{{elem.strIngredient9}}<span v-if="elem.strMeasure8" class="ms-2 fs-6">({{ elem.strMeasure9 }})</span></li>
+              <li v-if="elem.strIngredient10">{{elem.strIngredient10}}<span v-if="elem.strMeasure9" class="ms-2 fs-6">({{ elem.strMeasure10 }})</span></li>
+              <li v-if="elem.strIngredient11">{{elem.strIngredient11}}<span v-if="elem.strMeasure10" class="ms-2 fs-6">({{ elem.strMeasure11}})</span></li>
+              <li v-if="elem.strIngredient12">{{elem.strIngredient12}}<span v-if="elem.strMeasure11" class="ms-2 fs-6">({{ elem.strMeasure12 }})</span></li>
+              <li v-if="elem.strIngredient13">{{elem.strIngredient13}}<span v-if="elem.strMeasure12" class="ms-2 fs-6">({{ elem.strMeasure13 }})</span></li>
+              <li v-if="elem.strIngredient14">{{elem.strIngredient14}}<span v-if="elem.strMeasure13" class="ms-2 fs-6">({{ elem.strMeasure14 }})</span></li>
+              <li v-if="elem.strIngredient15">{{elem.strIngredient15}}<span v-if="elem.strMeasure14" class="ms-2 fs-6">({{ elem.strMeasure15 }})</span></li>
             </ul>
             <span class="etichetta">Istruzioni: </span>
             <div v-if="elem.strInstructionsIT"> {{elem.strInstructionsIT}}</div>
@@ -99,7 +99,7 @@ export default{
         </div>
         <div id="main-right" class="d-flex justify-content-center align-items-start">
             <img :src="`${elem.strDrinkThumb}`" alt="immagine cocktail">
-        </div>
+          </div>
       </div>
 <!--FINE RICERCA INPUT  -->
 
